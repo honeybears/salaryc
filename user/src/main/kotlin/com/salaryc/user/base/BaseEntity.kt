@@ -1,4 +1,4 @@
-package com.salaryc.user.entity
+package com.salaryc.user.base
 
 import jakarta.persistence.Column
 import jakarta.persistence.EntityListeners
