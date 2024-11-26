@@ -1,8 +1,7 @@
 package com.salaryc.user.user.dto
 
-data class UserResponse(
+data class UserResponseDto(
     val id : Long,
     val email : String,
-    val password : String
 ) {
 }

@@ -1,10 +1,6 @@
 package com.salaryc.user.user.dto
 
-import com.salaryc.user.user.entity.User
-
-data class UserRequest(
+data class RegisterRequestDto(
     val email : String,
     val password : String
-) {
-
-}
+)
