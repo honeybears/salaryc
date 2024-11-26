@@ -6,7 +6,7 @@ enum class UserRole(val roleName: String) {
     ADMIN_ACCOUNT("admin");
     companion object {
         fun fromRoleName(roleName: String): UserRole {
-            return entries.find { it.roleName == roleName }
+            return entries.find { it.roleName == roleName.lowercase() }
                 ?: throw IllegalArgumentException("Invalid role name: $roleName")
         }
     }

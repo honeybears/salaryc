@@ -1,6 +1,7 @@
 package com.salaryc.user.user.dto
 
 data class RegisterRequestDto(
-    val email : String,
-    val password : String
+    val phone : String,
+    val password : String,
+    val role : String
 )

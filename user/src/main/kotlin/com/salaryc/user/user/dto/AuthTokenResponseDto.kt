@@ -1,4 +1,7 @@
 package com.salaryc.user.user.dto
 
-class AuthTokenResponseDto {
+data class AuthTokenResponseDto(
+    val accessToken: String,
+    val refreshToken: String
+) {
 }
