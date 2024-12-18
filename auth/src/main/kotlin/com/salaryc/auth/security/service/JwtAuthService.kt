@@ -13,7 +13,7 @@ class JwtAuthService(
     private val securityUtils: SecurityUtils
 ) : AuthService {
 
-    fun authJwtToken(token : String) : UserInfoRequestDto {
+    override fun authJwtToken(token : String) : UserInfoRequestDto {
         val tokenInfo = securityUtils.decryptToken(token)
         return UserInfoRequestDto(
             userId = tokenInfo.userId,
@@ -21,7 +21,7 @@ class JwtAuthService(
         )
     }
 
-    fun generateAccessToken(userInfoRequestDto: UserInfoRequestDto) : JwtResponseDto{
+    override fun generateAccessToken(userInfoRequestDto: UserInfoRequestDto) : JwtResponseDto{
         val accessToken = securityUtils.createAccessTokenWithUserInfo(userId = userInfoRequestDto.userId, userRole = userInfoRequestDto.userRole)
         val refreshToken = securityUtils.createRefreshTokenWithUserInfo(userId = userInfoRequestDto.userId, userRole = userInfoRequestDto.userRole)
 
@@ -33,7 +33,7 @@ class JwtAuthService(
         )
     }
 
-    fun refreshAccessToken(refreshToken: String) : JwtResponseDto{
+    override fun refreshAccessToken(refreshToken: String) : JwtResponseDto{
         val tokenInfo = securityUtils.decryptToken(refreshToken)
 
         val refreshTokenData = redisService.find("refreshToken:${tokenInfo.userId}") ?: throw RefreshTokenNotFoundException()

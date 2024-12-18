@@ -28,6 +28,7 @@ repositories {
 extra["springCloudVersion"] = "2024.0.0-RC1"
 
 dependencies {
+    implementation ("org.springframework.boot:spring-boot-starter-actuator")
     implementation("org.springframework.boot:spring-boot-starter-data-redis")
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
@@ -39,6 +40,9 @@ dependencies {
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+    //for Mock Web Server
+    testImplementation("com.squareup.okhttp3:mockwebserver:4.11.0")
+
 }
 
 dependencyManagement {

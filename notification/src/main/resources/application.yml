@@ -1,0 +1,31 @@
+spring:
+  data:
+    redis:
+      host: localhost
+      port: 6379
+
+  session:
+    redis:
+      namespace: zum:session
+
+  application:
+    name: notification
+  kafka:
+    consumer:
+      bootstrap-servers: localhost:9092
+      group-id: notification-group
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: com.salaryc.notification.config.JsonDeserializer
+      properties:
+        spring.json.trusted.packages: "*"
+      auto-offset-reset: earliest
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    password: password2
+    username: user2
+    url: jdbc:postgresql://localhost:5433/notification
+  jpa:
+    hibernate:
+      ddl-auto: update
+server:
+  port: 8084

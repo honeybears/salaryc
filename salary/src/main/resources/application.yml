@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: salary
+  kafka:
+    producer:
+      bootstrap-servers: localhost:9092
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    password: password2
+    username: user2
+    url: jdbc:postgresql://localhost:5433/notification
+  jpa:
+    hibernate:
+      ddl-auto: update
+server:
+  port: 8082
